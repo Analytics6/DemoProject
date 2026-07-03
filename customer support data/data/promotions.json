@@ -1,0 +1,26 @@
+[
+  {
+    "promo_id": "PROMO10",
+    "title": "Summer 10% Off",
+    "description": "Get 10% off on all apparel items.",
+    "category": "apparel",
+    "discount_percent": 10,
+    "valid_until": "2026-08-31"
+  },
+  {
+    "promo_id": "ELEC15",
+    "title": "Electronics Flash Sale",
+    "description": "15% off on select electronics above $100.",
+    "category": "electronics",
+    "discount_percent": 15,
+    "valid_until": "2026-07-31"
+  },
+  {
+    "promo_id": "HOMEBUNDLE",
+    "title": "Home Essentials Bundle",
+    "description": "Buy any 2 home appliances and get $20 off.",
+    "category": "home",
+    "discount_percent": 0,
+    "valid_until": "2026-09-15"
+  }
+]
