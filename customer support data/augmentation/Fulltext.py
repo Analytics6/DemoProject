@@ -45,3 +45,33 @@ def build_full_text_documents(
         )
 
     return full_docs
+
+
+def build_ticket_documents(ticket_docs: List[Dict]) -> List[Document]:
+    """Convert support tickets into LangChain documents for RAG indexing."""
+    documents: List[Document] = []
+    for item in ticket_docs:
+        resolution = item.get("resolution") or "Pending resolution."
+        text = (
+            f"Support Ticket #{item['id']}: {item['subject']}. "
+            f"Customer: {item['customer_name']}. Category: {item.get('category', 'general')}. "
+            f"Status: {item['status']}. Priority: {item['priority']}. "
+            f"Order: {item.get('order_id', 'N/A')}. Product: {item.get('product', 'N/A')}. "
+            f"Description: {item.get('description', '')}. "
+            f"Resolution: {resolution}."
+        )
+        documents.append(
+            Document(
+                page_content=text,
+                metadata={
+                    "doc_id": f"TKT-{item['id']}",
+                    "type": "ticket",
+                    "ticket_id": item["id"],
+                    "category": item.get("category", "general"),
+                    "status": item["status"],
+                    "priority": item["priority"],
+                    **{k: v for k, v in item.items() if isinstance(v, (str, int, float))},
+                },
+            )
+        )
+    return documents

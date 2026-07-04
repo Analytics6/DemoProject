@@ -34,3 +34,13 @@ def preprocess_faq(json_path: str) -> List[Dict]:
         item["clean_answer"] = clean_text(item.get("answer", ""))
         item["document_type"] = "general"
     return data
+
+
+def preprocess_tickets(json_path: str) -> List[Dict]:
+    with Path(json_path).open("r", encoding="utf-8") as file:
+        data = json.load(file)
+    for item in data:
+        item["clean_subject"] = clean_text(item.get("subject", ""))
+        item["clean_description"] = clean_text(item.get("description", ""))
+        item["document_type"] = "ticket"
+    return data
