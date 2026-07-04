@@ -1,0 +1,8 @@
+{
+  "indexed_at": "2026-07-04 04:18:19",
+  "total_chunks": 1013,
+  "total_source_docs": 513,
+  "ticket_docs": 500,
+  "embedding_model": "text-embedding-3-small",
+  "chunk_size": 280
+}
